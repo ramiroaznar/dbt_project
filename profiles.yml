@@ -1,3 +1,14 @@
+sa-dbt-prod:
+  target: prod
+  outputs:
+    dev:
+      type: bigquery
+      schema: taxi_dataset
+      method: service-account
+      project: dbt-project-407812
+      threads: 4
+      keyfile: "{{ env_var('TMP_GCP_KEYFILE') }}"
+
 ramiro-dev:
   target: dev
   outputs:
@@ -7,4 +18,4 @@ ramiro-dev:
       method: service-account
       project: dbt-project-407812
       threads: 4
-      keyfile: /home/ramiro/tb/dbt_project/.sa/ramiro-sa.json
+      keyfile: "{{ env_var('GCP_SERVICE_ACCOUNT_KEYFILE') }}"
