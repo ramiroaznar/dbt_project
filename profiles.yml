@@ -7,7 +7,7 @@ dbt-prod:
       method: service-account
       project: dbt-project-407812
       threads: 4
-      keyfile: "{{ env_var('TMP_GCP_KEYFILE') }}"
+      keyfile: "{{ env_var('DBT_GOOGLE_KEYFILE') }}"
 
 dbt-dev:
   target: dev
