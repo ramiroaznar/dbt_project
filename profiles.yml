@@ -1,14 +1,13 @@
 dbt-prod:
-  default:
-    target: prod
-    outputs:
-      prod:
-        type: bigquery
-        schema: taxi_dataset
-        method: service-account
-        project: dbt-project-407812
-        threads: 4
-        keyfile: "{{ env_var('TMP_GCP_KEYFILE') }}"
+  target: prod
+  outputs:
+    prod:
+      type: bigquery
+      schema: taxi_dataset
+      method: service-account
+      project: dbt-project-407812
+      threads: 4
+      keyfile: "{{ env_var('TMP_GCP_KEYFILE') }}"
 
 dbt-dev:
   target: dev
