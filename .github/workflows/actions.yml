@@ -36,10 +36,10 @@ jobs:
           pip install -r requirements.txt
           dbt deps
           dbt --version
+          dbt debug --connection
 
         # run dbt
       - name: run dbt models
-        run: dbt run
-
-      - name: run dbt tests
-        run: dbt test
+        run: |
+            dbt run
+            dbt test
