@@ -1,0 +1,10 @@
+ramiro-dev:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      schema: ramiro_dev
+      method: service-account
+      project: dbt-project-407812
+      threads: 4
+      keyfile: /home/ramiro/tb/dbt_project/.sa/ramiro-sa.json

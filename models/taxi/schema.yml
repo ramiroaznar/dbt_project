@@ -1,0 +1,38 @@
+
+version: 2
+
+models:
+  - name: stg__taxi_data
+    description: "A staging taxi data table with unique ids."
+    columns:
+      - name: taxi_pickup_id
+        tests:
+          - unique
+          - not_null
+      - name: vendorid
+      - name: tpep_pickup_datetime
+      - name: tpep_dropoff_datetime
+      - name: passenger_count
+      - name: trip_distance
+      - name: ratecodeid
+      - name: store_and_fwd_flag
+      - name: pulocationid
+      - name: dolocationid
+      - name: payment_type
+      - name: fare_amount
+      - name: extra
+      - name: mta_tax
+      - name: tip_amount
+      - name: tolls_amount
+      - name: improvement_surcharge
+      - name: total_amount,
+
+  - name: int__taxi_data
+    description: "An intermediate model aggregating taxi data by hour"
+    columns:
+      - name: pickup_hour
+      - name: total_pickups
+      - name: total_passengers
+      - name: avg_trip_distance
+
+      

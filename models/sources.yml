@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: taxi_dataset 
+    database: dbt-project-407812  
+    schema: taxi_dataset  
+    tables:
+      - name: taxi_data
