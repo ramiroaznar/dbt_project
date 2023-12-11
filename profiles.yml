@@ -1,7 +1,7 @@
 sa-dbt-prod:
   target: prod
   outputs:
-    dev:
+    prod:
       type: bigquery
       schema: taxi_dataset
       method: service-account
