@@ -27,17 +27,23 @@ pip install -r requirements.txt
 
 ### Run dbt locally
 
-Export environmental variables:
+* Export environmental variables:
 
 ```bash
 export DBT_PROFILES_DIR=./
 export DBT_PROJECT_DIR=./
-export GCP_SERVICE_ACCOUNT_KEYFILE=<YOUR_SERVICE_ACCOUNT_KEYFILE>
+export DBT_PROFILE=dbt-dev
+export GCP_SERVICE_ACCOUNT_KEYFILE=<YOUR_SERVICE_ACCOUNT_KEYFILE_PATH>
 ```
 
-Try running the following commands:
-- dbt run
-- dbt test
+You can save these variables in a `.sh` file and run it using `source` command.
+
+* Try running the following commands:
+
+```
+dbt run --project-dir $DBT_PROJECT_DIR --profile $DBT_PROFILE
+dbt test --project-dir $DBT_PROJECT_DIR --profile $DBT_PROFILE
+```
 
 Generate dbt docs:
     
