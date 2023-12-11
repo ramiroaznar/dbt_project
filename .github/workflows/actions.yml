@@ -16,7 +16,7 @@ jobs:
     steps:
         
         # prep Google keyfile
-      - run: mkdir -p "$(dirname $DBT_GOOGLE_KEYFILE)" 
+      - run: mkdir -p "$(dirname $TMP_GCP_KEYFILE)" 
       - run: echo "$GCP_SERVICE_ACCOUNT_KEYFILE" > $TMP_GCP_KEYFILE
 
         # checkout the repository content
