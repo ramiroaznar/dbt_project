@@ -7,8 +7,14 @@ on:
       - main
 
 env:
-    TMP_GCP_KEYFILE: /tmp/google/google-service-account.json
-    GCP_SERVICE_ACCOUNT_KEYFILE: ${{ secrets.GCP_SERVICE_ACCOUNT_KEYFILE }}
+    # dbt env variables used in your dbt profiles.yml
+    DBT_PROFILES_DIR: ./
+    DBT_GOOGLE_PROJECT: ${{ vars.DBT_GOOGLE_PROJECT }}
+    DBT_GOOGLE_DATASET: ${{ vars.DBT_GOOGLE_DATASET }}
+    DBT_GOOGLE_KEYFILE: /tmp/google/google-service-account.json
+
+    # the contents of the keyfile pulled from GitHub Actions secrets 
+    KEYFILE_CONTENTS: ${{secrets.KEYFILE_CONTENTS}}
 
 jobs:
   build-and-run:
@@ -16,8 +22,8 @@ jobs:
     steps:
         
         # prep Google keyfile
-      - run: mkdir -p "$(dirname $TMP_GCP_KEYFILE)" 
-      - run: echo "$GCP_SERVICE_ACCOUNT_KEYFILE" > $TMP_GCP_KEYFILE
+      - run: mkdir -p "$(dirname $DBT_GOOGLE_KEYFILE)"  
+      - run: echo "$KEYFILE_CONTENTS" > $DBT_GOOGLE_KEYFILE
 
         # checkout the repository content
       - name: checkout repo content
@@ -41,5 +47,5 @@ jobs:
         # run dbt
       - name: run dbt models
         run: |
-            dbt run
-            dbt test
+            dbt run --profile dbt-prod
+            dbt test --profile dbt-prod
