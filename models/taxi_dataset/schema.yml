@@ -27,7 +27,7 @@ models:
       - name: improvement_surcharge
       - name: total_amount,
 
-  - name: int__taxi_data
+  - name: int__taxi_data_by_date
     description: "An intermediate model aggregating taxi data by date"
     columns:
       - name: pickup_date
