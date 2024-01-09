@@ -28,15 +28,15 @@ models:
       - name: total_amount,
 
   - name: int__taxi_data
-    description: "An intermediate model aggregating taxi data by hour"
+    description: "An intermediate model aggregating taxi data by date"
     columns:
-      - name: pickup_hour
-        description: "The hour of the pickup"
+      - name: pickup_date
+        description: "The date of the pickup"
       - name: total_pickups
-        description: "The total number of pickups in a given hour"
+        description: "The total number of pickups in a given date"
       - name: total_passengers
-        description: "The total number of passengers in a given hour"
+        description: "The total number of passengers in a given date"
       - name: avg_trip_distance
-        description: "The average trip distance in a given hour"
+        description: "The average trip distance in a given date"
 
       

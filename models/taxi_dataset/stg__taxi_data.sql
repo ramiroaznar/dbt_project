@@ -3,7 +3,7 @@
 with source_data as (
 
     select
-        GENERATE_UUID() as taxi_pickup_id,
+        id as taxi_pickup_id,
         vendorid,
         tpep_pickup_datetime,
         tpep_dropoff_datetime,
