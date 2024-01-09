@@ -38,5 +38,7 @@ models:
         description: "The total number of passengers in a given date"
       - name: avg_trip_distance
         description: "The average trip distance in a given date"
+      - name: avg_total_amount
+        description: "The average total amount in a given date"
 
       
