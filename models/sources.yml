@@ -4,5 +4,8 @@ sources:
   - name: taxi_dataset 
     database: dbt-project-407812  
     schema: taxi_dataset  
+    description: "Pickup and dropoff times for taxi rides in New York City."
+    loader: manual
     tables:
       - name: taxi_data
+
